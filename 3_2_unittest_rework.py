@@ -3,8 +3,8 @@ from selenium.webdriver.common.by import By
 import time
 import unittest
 
-class unittest_first(unittest.TestCase):
-    def good_link(self):
+class Test_unittest_first(unittest.TestCase):
+    def test_good_link(self):
         # Хороший сайт - Тест пройдет
         link = "http://suninjuly.github.io/registration1.html"
         # Плохой сайт - Тест упадет
@@ -38,9 +38,9 @@ class unittest_first(unittest.TestCase):
         welcome_text = welcome_text_elt.text
 
         # с помощью assert проверяем, что ожидаемый текст совпадает с текстом на странице сайта
-        assert "Congratulations! You have successfully registered!" == welcome_text
+        self.assertEqual("Congratulations! You have successfully registered!", welcome_text)
 
-    def bad_link(self):
+    def test_bad_link(self):
         # Плохой сайт - Тест упадет
         link = "http://suninjuly.github.io/registration2.html"
         browser = webdriver.Chrome()
@@ -72,4 +72,6 @@ class unittest_first(unittest.TestCase):
         welcome_text = welcome_text_elt.text
 
         # с помощью assert проверяем, что ожидаемый текст совпадает с текстом на странице сайта
-        assert "Congratulations! You have successfully registered!" == welcome_text
+        self.assertEqual("Congratulations! You have successfully registered!", welcome_text)
+if __name__ == "__main__":
+    unittest.main()
