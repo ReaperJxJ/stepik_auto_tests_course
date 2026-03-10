@@ -27,5 +27,5 @@ class TestMainPage1():
     @pytest.mark.xfail
     def test_guest_should_see_search_button_on_the_main_page(self, browser):
         browser.get(link)
-        browser.find_element(By.CSS_SELECTOR, "button.favorite")
+        browser.find_element(By.CSS_SELECTOR, ".basket-mini .btn-group > a")
 
